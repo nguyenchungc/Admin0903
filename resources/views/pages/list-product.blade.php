@@ -6,7 +6,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <b>
-                   Danh sách sản phẩm thuộc loại ......
+                   Danh sách sản phẩm thuộc loại {{$nameType}}
                 </b>
             </div>
             <div class="panel-body">
@@ -39,24 +39,24 @@
                      @foreach($products as $product)
                       <tr>
                       <td>DH000{{$product->id}}</td>
-                        <td>
+                        <td id="name-{{$product->id}}">
                             {{$product->name}}
                         </td>
-                        <td> <img src="" alt=""</td>
+                    <td> <img height=100px src="admin-master/images/{{$product->image}}" alt=""</td>
                         <td>
                             {{number_format($product->price)}}
                             <br>
                             {{number_format($product->promotion_price)}}
                         </td>
                         <td>
-                            <input type="checkbox" @if($product->status==1) checked @endif>
+                            <input class="form-control" disabled type="checkbox" @if($product->status==1) checked @endif>
                         </td>
-                        <td><input type="checkbox" @if($product->new==1) checked @endif></td>
-                        <td><input type="checkbox" @if($product->deleted==1) checked @endif></td>
+                        <td><input type="checkbox" disabled @if($product->new==1) checked @endif></td>
+                        <td><input type="checkbox" disabled @if($product->deleted==1) checked @endif></td>
                         
                         <td>
-                            <button class="btn btn-primary btn-sm updateBill" data-toggle="modal" data-target="#myModal" data-id="{{$product->id}}">Xóa</button>
-                            <button class="btn btn-default btn-sm">Sửa</button>
+                            <button class="btn btn-primary btn-sm updateProduct" data-toggle="modal" data-target="#myModal" data-id="{{$product->id}}">Xóa</button>
+                        <button class="btn btn-default btn-sm"><a href="{{route('updateProduct',$product->id)}}">Sửa</button>
                         </td>
                         
                       </tr>
@@ -75,11 +75,11 @@
         <!-- Modal content-->
         <div class="modal-content">
         <div class="modal-body">
-            <p>Bạn có chắc chắn chuyển <b id="idBill">DH000</b> sang đã giao?</p>
+            <p>Bạn có chắc chắn xóa sản phẩm <b id="nameProduct"></b> hay không?</p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-primary">
-                <a href="admin/update-bill" id="addIdBill">OK</a>
+                <a href="admin/delete-Product" id="addIdProduct">OK</a>
             </button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         </div>
@@ -90,9 +90,12 @@
 <script src="admin-master/js/jquery.js"></script>
 <script>
     $(document).ready(function(){
-        $('.updateBill').click(function(){
-            var idBill = $(this).attr('data-id') //get 
-            $('#addIdBill').attr('href',"admin/update-bill-"+idBill) //set
+        $('.updateProduct').click(function(){
+            var idProduct = $(this).attr('data-id') //get 
+            var nameProduct = $('#name-'+idProduct).text() //# la id
+           // console.log(nameProduct)
+            $('#nameProduct').html(nameProduct)
+            $('#addIdProduct').attr('href',"admin/delete-Product-"+idProduct) //set
         })
     })
 </script>

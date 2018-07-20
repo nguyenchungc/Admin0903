@@ -40,6 +40,9 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
 
     // admin/add-product
     Route::get('add-product',"AdminController@getAddProduct")->name('addProduct');
+    Route::get('delete-Product-{id}',"AdminController@getDeleteProduct")->name('deleteProduct');
+    Route::get('update-Product-{id}',"AdminController@getUpdateProduct")->name('updateProduct');
+    Route::post('update-Product-{id}',"AdminController@postUpdateProduct")->name('updateProduct');
 
     Route::get('list-product-{idType}',"AdminController@getlistProduct")->name('listProduct');
 });

@@ -8,6 +8,7 @@ use Hash;
 use Auth;
 use App\Bills;
 use App\Products;
+use App\Categories;
 
 class AdminController extends Controller
 {
@@ -90,7 +91,22 @@ class AdminController extends Controller
         return view('pages.home',compact('bills','status'));
     }
     function getlistProduct($idType){
+        $nameType=Categories::where('id',$idType)->value('name');
         $products = Products::where('id_type',$idType)->paginate(10); //paginate dung de phan trang
-        return view('pages.list-product',compact('products'));
+        return view('pages.list-product',compact('products','nameType'));
+    }
+    function getDeleteProduct($id){
+        $product = Products::findOrFail($id);
+        if($product){
+            $product->deleted = 1;
+            $product->save();
+            return redirect()->route('listProduct',$product->id_type)->with('success','xóa thành công');
+        }else {
+            return redirect()->back()->with('error','không tìm thấy sản phẩm');
+        }
+
+    }
+    function getUpdateProduct($id){
+        echo $id;
     }
 }
