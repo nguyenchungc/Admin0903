@@ -315,13 +315,13 @@
                             
                             @foreach($menu as $m)
                                 @if(count($m->levelTwo)==0)
-                                <li><a  href="javascript:;">{{$m->name}}</a></li>
+                                <li><a  href="{{route('listProduct',$m->id)}}">{{$m->name}}</a></li>
                                 @else
                                 <li class="sub-menu">
                                     <a  href="boxed_page.html">{{$m->name}}</a>
                                     <ul class="sub">
                                         @foreach($m->levelTwo as $l2)
-                                        <li><a  href="javascript:;">{{$l2->name}}</a></li>
+                                    <li><a  href="{{route('listProduct',$l2->id)}}">{{$l2->name}}</a></li>
                                         @endforeach
 
                                     </ul>

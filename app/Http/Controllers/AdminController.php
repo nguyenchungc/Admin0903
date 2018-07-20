@@ -7,6 +7,7 @@ use App\User;
 use Hash;
 use Auth;
 use App\Bills;
+use App\Products;
 
 class AdminController extends Controller
 {
@@ -87,5 +88,9 @@ class AdminController extends Controller
         $bills = Bills::with('customer','billDetail','billDetail.product')          
                 ->where('status',$status)->orderBy('id','DESC')->paginate(5);
         return view('pages.home',compact('bills','status'));
+    }
+    function getlistProduct($idType){
+        $products = Products::where('id_type',$idType)->paginate(10); //paginate dung de phan trang
+        return view('pages.list-product',compact('products'));
     }
 }
