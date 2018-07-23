@@ -27,18 +27,18 @@
                           <input type="text" class="form-control" id="name" name="name" value="{{$product->name}}">
                         </div>
                         <div class="form-group">
-                            <label for="name">Chọn cấp cha</label>
-                            <select name="id_type" class="form-control">
-                                <option value="">---Chọn loại</option>
+                            <label for="name">Chọn cấp cha:</label>
+                            <select name="id_type" class="form-control" id="level-one">
+                                <option value="">---Chọn loại---</option>
                                 @foreach($levelOne as $l1)
-                                <option value="$l1->id")>{{$l1->name}}</option>
+                                <option value="{{$l1->id}}">{{$l1->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="name">Chọn cấp con</label>
-                            <select name="id_type" class="form-control">
-                                <option value="">---Chọn loại</option>
+                            <label for="name">Chọn cấp con:</label>
+                            <select name="id_type" class="form-control" id="level-two">
+                                <option value="">---Chọn loại---</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -51,11 +51,6 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Khuyến mãi kèm theo:</label>
-                            {{-- <select name="promotion" class="form-control">
-                                <option value="Phiếu mua hàng Samsung trị giá 250.000đ ">Phiếu mua hàng Samsung trị giá 250.000đ </option>
-                                <option value="Giảm ngay 1 triệu">Giảm ngay 1 triệu</option>
-                                <option value="Giảm 1 triệu cho Apple Watch khi mua kèm iPhone/iPad">Giảm 1 triệu cho Apple Watch khi mua kèm iPhone/iPad</option>
-                            </select> --}}
                             <textarea rows="5" class="form-control"  name="promotion">{{$product->promotion}}</textarea>
                         </div>
                         <div class="form-group">
@@ -87,8 +82,10 @@
         </div>
     </section>
 </div>
+
+<script src="admin-master/js/jquery.js"></script>
 <script>
-$(document).ready(function(){
+    $(document).ready(function(){
         $('#level-one').change(function(){
             var idType = $(this).val()
             $.ajax({
@@ -100,12 +97,18 @@ $(document).ready(function(){
                 },
                 success:function(res){
                     console.log(res)
+                    if($.trim(res)=='nolevel2'){
+                        $('#level-two').html('<select class="form-control" id="level-two"><option disabled>Không tồn tại cấp 2</option></select>')
+                    }
+                    else{
+                        $('#level-two').html(res)
+                    }
                 },
                 error:function(){
                     console.log('errrr!!')
                 }
             })
         })
-})
+    })
 </script>
 @endsection
