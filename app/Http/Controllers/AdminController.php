@@ -107,6 +107,26 @@ class AdminController extends Controller
 
     }
     function getUpdateProduct($id){
-        echo $id;
+        $product = Products::where('id',$id)->first();
+        $levelOne = Categories::where('id_parent',NULL)->get();
+
+        if($product){
+            return view('pages.edit-product',compact('product','levelOne'));
+        } else {
+
+        
+        return redirect()->back()->with('error','không tìm thấy sản phẩm');
+        }
     }
+
+    function getlevelTwo(Request $req){
+        $levelTwo = Categories::where('id_parent',$id)->get();
+
+        if(empty($levelTwo->toArray())){
+            echo "no level 2";
+        }else {
+            return view('ajax.levelTwo', compact('levelTwo'));
+        }
+    }
+    
 }
