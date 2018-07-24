@@ -21,7 +21,8 @@
                 </div>
                 @endif
                 <div class="row">
-                    <form  action="" method="POST">
+                    <form  action="{{route('updateProduct',$product->id)}}" method="POST">
+                        @csrf
                         <div class="form-group">
                           <label for="name">Tên sản phẩm:</label>
                           <input type="text" class="form-control" id="name" name="name" value="{{$product->name}}">
@@ -38,7 +39,9 @@
                         <div class="form-group">
                             <label for="name">Chọn cấp con:</label>
                             <select name="id_type" class="form-control" id="level-two">
-                                <option value="">---Chọn loại---</option>
+                                @foreach($levelTwo as $l2)
+                                <option value="{{$l2->id}}" @if($l2->id==$product->id_type) selected @endif >{{$l2->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
@@ -102,6 +105,7 @@
                     }
                     else{
                         $('#level-two').html(res)
+                        // $('#level-one').attr('name','')
                     }
                 },
                 error:function(){

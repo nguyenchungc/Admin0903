@@ -109,9 +109,9 @@ class AdminController extends Controller
     function getUpdateProduct($id){
         $product = Products::where('id',$id)->first();
         $levelOne = Categories::where('id_parent',NULL)->get();
-
+        $levelTwo = Categories::where('id_parent',NULL)->get();
         if($product){
-            return view('pages.edit-product',compact('product','levelOne'));
+            return view('pages.edit-product',compact('product','levelOne','levelTwo'));
         } else {
 
         
@@ -127,6 +127,10 @@ class AdminController extends Controller
         else{
             return view('ajax.leveltwo',compact('levelTwo'));
         }
+    }
+    function postUpdateProduct(Request $req)
+    {
+        dd($req->input());    
     }
     
 }
