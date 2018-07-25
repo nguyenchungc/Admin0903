@@ -21,7 +21,7 @@
                 </div>
                 @endif
                 <div class="row">
-                    <form  action="{{route('updateProduct',$product->id)}}" method="POST">
+                    <form  action="{{route('updateProduct',$product->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                           <label for="name">Tên sản phẩm:</label>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="form-group">
                             <label for="pwd">Đơn giá khuyến mãi:</label>
-                            <input type="text" class="form-control" name="promotion_price" value="{{$product->promotion_price}}">
+                            <input type="text" class="form-control" name="promotion_price" value="{{$product->promotion_price or 0}}">
                         </div>
                         <div class="form-group">
                             <label for="name">Khuyến mãi kèm theo:</label>
