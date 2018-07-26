@@ -1,6 +1,7 @@
 @extends('layout.admin-layout')
 @section('title','Cập nhật thông tin sản phẩm '.$product->name)
 @section('content')
+
 <div class="panel panel-body">
     <section class="content">
         <div class="panel panel-default">
@@ -58,7 +59,7 @@
                         </div>
                         <div class="form-group">
                             <label for="pwd">Thông tin chi tiết:</label>
-                            <textarea rows="5" class="form-control" name="detail" id="pwd">{{$product->detail}}</textarea>
+                            <textarea rows="5" class="form-control" name="detail" id="detail">{{$product->detail}}</textarea>
                         </div>
                         <div class="form-group">
                             <label>Hình sản phẩm:</label>
@@ -87,6 +88,7 @@
 </div>
 
 <script src="admin-master/js/jquery.js"></script>
+
 <script>
     $(document).ready(function(){
         $('#level-one').change(function(){
@@ -114,5 +116,9 @@
             })
         })
     })
+</script>
+<script src="ckeditor/ckeditor.js"></script>
+<script>
+ CKEDITOR.replace(detail)
 </script>
 @endsection
