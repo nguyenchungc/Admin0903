@@ -354,9 +354,9 @@
                       </ul>
                   </li>
                   <li>
-                      <a href="google_maps.html" >
+                  <a href="{{route('addProduct')}}" >
                           <i class="fa fa-map-marker"></i>
-                          <span>Google Maps </span>
+                          <span> Thêm sản phẩm mới  </span>
                       </a>
                   </li>
 

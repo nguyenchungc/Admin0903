@@ -44,6 +44,9 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
     Route::get('update-Product-{id}',"AdminController@getUpdateProduct")->name('updateProduct');
     Route::post('update-Product-{id}',"AdminController@postUpdateProduct")->name('updateProduct');
 
+    Route::get('add-product',"AdminController@getAddProduct")->name('addProduct');
+    Route::post('add-product',"AdminController@posAddProduct")->name('addProduct');
+
     Route::get('list-product-{idType}',"AdminController@getlistProduct")->name('listProduct');
     //admin/select-level-two duong link
     route::get('select-level-two',"AdminController@getlevelTwo")->name('getL2');
