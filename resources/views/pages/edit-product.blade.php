@@ -95,7 +95,7 @@
             var idType = $(this).val()
             $.ajax({
                 //url:"admin/select-level-two",
-                url:"{{route('getL2')}}",
+                url:"{{route('getl2')}}",
                 type: 'GET',
                 data:{
                     id:idType // $_GET['id'] ~ $req->id

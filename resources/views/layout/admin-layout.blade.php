@@ -295,7 +295,7 @@
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class=" fa fa-envelope"></i>
+                          <i class=" fa fa-arrow-alt-circle-right"></i>
                           <span>Quản lý đơn hàng</span>
                       </a>
                       <ul class="sub">
@@ -305,6 +305,13 @@
                             <li><a  href="{{route('bills',3)}}">Đơn hàng bị huỷ</a></li>
                       </ul>
                   </li>
+
+                  <li>
+                    <a href="{{route('addProduct')}}" >
+                        <i class="fa fa-angle-double-down"></i>
+                        <span>Thêm sản phẩm mới</span>
+                    </a>
+                </li>
                   <!--multi level menu start-->
                   <li class="sub-menu">
                         <a href="javascript:;" >
@@ -321,7 +328,7 @@
                                     <a  href="boxed_page.html">{{$m->name}}</a>
                                     <ul class="sub">
                                         @foreach($m->levelTwo as $l2)
-                                    <li><a  href="{{route('listProduct',$l2->id)}}">{{$l2->name}}</a></li>
+                                        <li><a  href="{{route('listProduct',$l2->id)}}">{{$l2->name}}</a></li>
                                         @endforeach
 
                                     </ul>
@@ -352,12 +359,6 @@
                           <li><a  href="product_list.html">List View</a></li>
                           <li><a  href="product_details.html">Details View</a></li>
                       </ul>
-                  </li>
-                  <li>
-                  <a href="{{route('addProduct')}}" >
-                          <i class="fa fa-map-marker"></i>
-                          <span> Thêm sản phẩm mới  </span>
-                      </a>
                   </li>
 
                   
@@ -410,9 +411,7 @@
     <script src="admin-master/js/count.js"></script>
 
   <script>
-
       //owl carousel
-
       $(document).ready(function() {
           $("#owl-demo").owlCarousel({
               navigation : true,
@@ -420,16 +419,12 @@
               paginationSpeed : 400,
               singleItem : true,
 			  autoPlay:true
-
           });
       });
-
       //custom select box
-
       $(function(){
           $('select.styled').customSelect();
       });
-
   </script>
   
 
