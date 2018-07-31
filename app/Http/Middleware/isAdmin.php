@@ -20,7 +20,7 @@ class isAdmin
             return $next($request);
         }
         else{
-            return redirect()->back()->with('error','Bạn ko có quyền...!');
+            return redirect()->back()->with('error','Bạn ko có quyền truy cập vào chức năng này!');
         }
     }
 }

@@ -7,6 +7,7 @@
     <meta name="author" content="Mosaddek">
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="admin-master/img/favicon.html">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
     <title>@yield('title')</title>
     <base href="{{asset('')}}">
@@ -295,7 +296,7 @@
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class=" fa fa-arrow-alt-circle-right"></i>
+                          <i class=" fa fa-adjust"></i>
                           <span>Quản lý đơn hàng</span>
                       </a>
                       <ul class="sub">
@@ -409,6 +410,7 @@
     <script src="admin-master/js/sparkline-chart.js"></script>
     <script src="admin-master/js/easy-pie-chart.js"></script>
     <script src="admin-master/js/count.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
 
   <script>
       //owl carousel
