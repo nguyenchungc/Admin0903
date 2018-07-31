@@ -11,6 +11,7 @@ use App\Products;
 use App\Categories;
 use App\PageUrl;
 use App\Helpers\Helpers;
+use App\Customers;
 
 class AdminController extends Controller
 {
@@ -204,6 +205,13 @@ class AdminController extends Controller
             
             // return redirect()->route('listProduct',$product->id_type)->with('success','cập nhật thành công');
             return redirect()->route('listProduct',$product->id_type)->with('success','thêm mới thành công');
+    }
+    function getCustomers(){
+        $Users = Customers::with('customer')->get();
+        dd($Users);
+        
+        return view('pages.Customer');
+       
     } 
            
         

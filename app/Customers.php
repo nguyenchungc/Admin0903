@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Customers extends Authenticatable
 {
     protected $table = "customers";
+    public $timestamps = false;
     
     function billDetails(){
         return $this->hasManyThrough(
@@ -19,5 +20,8 @@ class Customers extends Authenticatable
             'id',
             'id'
         );
+    }
+    function customer(){
+        return $this->belongsTo('App\Customers','id_customer','id','username','email');
     }
 }

@@ -54,4 +54,6 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
     Route::get('list-product-{idType}',"AdminController@getlistProduct")->name('listProduct');
     //admin/select-level-two duong link
     route::get('select-level-two',"AdminController@getlevelTwo")->name('getl2');
+
+    route::get('customer',"AdminController@getCustomers")->name('customer');
 });

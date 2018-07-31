@@ -7,7 +7,7 @@
     <meta name="author" content="Mosaddek">
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="admin-master/img/favicon.html">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
 
     <title>@yield('title')</title>
     <base href="{{asset('')}}">
@@ -307,12 +307,13 @@
                       </ul>
                   </li>
 
-                  <li>
+                 <li>
                     <a href="{{route('addProduct')}}" >
                         <i class="fa fa-angle-double-down"></i>
                         <span>Thêm sản phẩm mới</span>
                     </a>
                 </li>
+                
                   <!--multi level menu start-->
                   <li class="sub-menu">
                         <a href="javascript:;" >
@@ -339,18 +340,12 @@
                         </ul>
                     </li>
                     <!--multi level menu end-->
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class=" fa fa-bar-chart-o"></i>
-                          <span>Charts</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="morris.html">Morris</a></li>
-                          <li><a  href="chartjs.html">Chartjs</a></li>
-                          <li><a  href="flot_chart.html">Flot Charts</a></li>
-                          <li><a  href="xchart.html">xChart</a></li>
-                      </ul>
-                  </li>
+                    <li>
+                        <a href="{{route('customer')}}" >
+                            <i class="fa fa-angle-double-down"></i>
+                            <span>Danh sách khách hàng</span>
+                        </a>
+                    </li>
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-shopping-cart"></i>
@@ -379,7 +374,7 @@
       <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-              2017 &copy; Hương Hương.
+              2018 &copy; Nguyen Hoai Chung.
               <a href="#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
@@ -410,7 +405,7 @@
     <script src="admin-master/js/sparkline-chart.js"></script>
     <script src="admin-master/js/easy-pie-chart.js"></script>
     <script src="admin-master/js/count.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
+ 
 
   <script>
       //owl carousel

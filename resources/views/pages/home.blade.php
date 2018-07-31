@@ -83,7 +83,7 @@
         <!-- Modal content-->
         <div class="modal-content">
         <div class="modal-body">
-            <p>Bạn có chắc chắn chuyển <b id="idBill">DH000</b> sang đã giao?</p>
+            <p>Bạn có chắc chắn chuyển <b id="idBill">...</b> sang đã giao?</p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-primary">
