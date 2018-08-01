@@ -208,9 +208,9 @@ class AdminController extends Controller
     }
     function getCustomers(){
         $Users = Customers::with('customer')->get();
-        dd($Users);
+        //dd($Users);
         
-        return view('pages.Customer');
+        return view('pages.Customer', compact('Users'));
        
     } 
            

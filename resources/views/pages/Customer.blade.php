@@ -23,13 +23,11 @@
                 <table class="table table-bordered">
                     <thead>
                       <tr>
-                        <th>Username</th>
-                        <th>Tên đầy đủ</th>
-                        <th>Ngày tháng năm sinh</th>
+                        <th>Tên</th>
                         <th>Giới tính</th>
-                        <th>Địa chỉ</th>
                         <th>Địa chỉ email</th>
-                        <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
+                        <th>Điện thoại</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -37,7 +35,19 @@
                         <tr>
                            
                             <td>
-                                {{$U->usersname}}
+                                {{$U->name}}
+                            </td>
+                            <td>
+                                {{$U->gender}}
+                            </td>
+                            <td>
+                                {{$U->email}}
+                            </td>
+                            <td>
+                                {{$U->address}}
+                            </td>
+                            <td>
+                                {{$U->phone}}
                             </td>
                            
                         </tr>
@@ -45,40 +55,11 @@
                     </tbody>
 
                   </table>
-                  {{$Users->links()}}
+                  
             </div>
         </div>
     </section>
 </div>
 
-<div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-    
-        <!-- Modal content-->
-        <div class="modal-content">
-        <div class="modal-body">
-            <p>Bạn có chắc chắn xoá sản phẩm <b id="nameProduct">...</b> ?</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary">
-                <a href="admin/delete-product" id="addIdProduct">OK</a>
-            </button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        </div>
-        </div>
-    
-    </div>
-</div>
-<script src="admin-master/js/jquery.js"></script>
-<script>
-    $(document).ready(function(){
-        // $('#myModal').modal('show')
-        $('.updateProduct').click(function(){
-            var idProduct = $(this).attr('data-id') //get 
-            var nameProduct = $('#name-'+idProduct).text()
-            $('#nameProduct').html(nameProduct)
-            $('#addIdProduct').attr('href',"admin/delete-product-"+idProduct) //set
-        })
-    })
-</script>
+
 @endsection
